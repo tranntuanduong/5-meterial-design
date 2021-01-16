@@ -20,6 +20,9 @@ html {
     height: 100vh;
     position: fixed;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    transform: translateX(0%);
+    transition: transform 0.4s;
+
 }
 
 .nav__icon {
@@ -85,10 +88,9 @@ html {
 
 /* Main  */
 
-
 .main {
     margin-left: 250px;
-    height: 1000px;
+    transition: margin-left 0.4s;
 }
 
 /* Header  */
@@ -97,6 +99,15 @@ html {
     background-color: #009688;
     height: 220px;
     padding: 0 32px ;
+}
+
+.header .menu-responsive {
+    font-size: 25px;
+    color: #fff;
+    padding: 16px; 
+    margin-top: 10px;
+    margin-left: -16px;
+    display: none;
 }
 
 .header__text {
@@ -112,11 +123,14 @@ html {
     top: 0;
     left: 250px;
     right: 0;
-  
 }
 
 .header--scrolled .header__text {
     display: none;
+}
+
+.header--scrolled .menu-responsive {
+    margin: 0 -20px;
 }
 
 .header__text--hide {
@@ -238,6 +252,7 @@ html {
 }
 
 /* Footer  */
+
 .footer {
     background-color: #009688;
     height: 114px;

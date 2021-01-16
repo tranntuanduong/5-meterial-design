@@ -4,6 +4,7 @@
         <title>Material Design</title>
         <link rel="stylesheet" href="./access/css/style.css">
         <link rel="stylesheet" href="./access/font/themify-icons/themify-icons.css">
+        <link rel="stylesheet" href="./access/css/responsive.css">
     </head>
 
     <body>
@@ -31,10 +32,11 @@
         </div>
 
        <div class="main">
-           <div id="headerId" class="header">
+            <div id="headerId" class="header">
+                <i class="ti-menu menu-responsive"></i>
                 <h1 class="header__text">W3.CSS</h1>
                 <h1 class="header__text--hide">W3.CSS: Introduction</h1>
-           </div>      
+            </div>      
 
            <div id="content">
                 <h3 class="content__heading">What is W3.CSS?</h3>
@@ -88,23 +90,33 @@
        </div>
 
        <script>
+            var menuItems = document.querySelectorAll('.nav__link li a[href*="#"]');
             var subnav = document.getElementById('subnav');
             var childSubnav = subnav.querySelector('#subnav ul');
+            // var childSubnav = document.getElementsByClassName('nav__sublink'); don't work
             var isHideSuvnav = true;
-           
-            // show sub nav menu
-            subnav.onclick = function () {
-                console.log('onclick subnav')
-                if (isHideSuvnav) {
-                    subnav.classList.add('nav__link--active');
-                    childSubnav.style.display = 'block'
-                    isHideSuvnav = !isHideSuvnav;
-                } else {
-                    subnav.classList.remove('nav__link--active');
-                    childSubnav.style.display = 'none'
-                    isHideSuvnav = !isHideSuvnav;
+            // show sub nav menu when clicked menu parent
+            for (var i = 0; i < menuItems.length; i++) {
+                var menuItem = menuItems[i];
+                    menuItem.onclick = function (event) {  
+                    var isMenuParent = this.nextElementSibling && this.nextElementSibling.classList.contains('nav__sublink');
+                    console.log(isMenuParent)
+                    if (isMenuParent) {
+                        event.preventDefault();  
+                        if (isHideSuvnav) {
+                            subnav.classList.add('nav__link--active');
+                            childSubnav.style.display = 'block'
+                            isHideSuvnav = !isHideSuvnav;
+                        } else {
+                            subnav.classList.remove('nav__link--active');
+                            childSubnav.style.display = 'none'
+                            isHideSuvnav = !isHideSuvnav;
+                        }  
+                    }
                 }
             }
+            
+           
 
             // change style of header on scroll
             window.onscroll = function () {
