@@ -8,12 +8,13 @@
     </head>
 
     <body>
-        <div class="nav">
+        <div id="nav" class="nav">
             <a href="#" class="nav__icon">
                 <img src="https://www.w3schools.com/images/w3schools.png" alt="">
             </a>
 
             <ul class="nav__link">
+                <li id="close-nav"><a href="#">Close <i class="ti-close"></i></a></li>
                 <li class="nav__link--active"><a href="#">Home</a></li>
                 <li><a href="#">Link 1</a></li>
                 <li><a href="#">Link 2</a></li>
@@ -33,7 +34,7 @@
 
        <div class="main">
             <div id="headerId" class="header">
-                <i class="ti-menu menu-responsive"></i>
+                <i id="menuResponsiveId" class="ti-menu menu-responsive"></i>
                 <h1 class="header__text">W3.CSS</h1>
                 <h1 class="header__text--hide">W3.CSS: Introduction</h1>
             </div>      
@@ -85,17 +86,17 @@
             </div>
 
            <div class="footer">
-                <div class="footer__text">Footer information goes here</div>
+                <div class="footer__text">Footer information goes here: 1/17/2021</div>
            </div>
        </div>
 
        <script>
+            // show sub nav menu when clicked menu parent
             var menuItems = document.querySelectorAll('.nav__link li a[href*="#"]');
             var subnav = document.getElementById('subnav');
             var childSubnav = subnav.querySelector('#subnav ul');
             // var childSubnav = document.getElementsByClassName('nav__sublink'); don't work
             var isHideSuvnav = true;
-            // show sub nav menu when clicked menu parent
             for (var i = 0; i < menuItems.length; i++) {
                 var menuItem = menuItems[i];
                     menuItem.onclick = function (event) {  
@@ -116,8 +117,6 @@
                 }
             }
             
-           
-
             // change style of header on scroll
             window.onscroll = function () {
                 var scrollY = window.scrollY;
@@ -131,9 +130,22 @@
                 }
             }
 
+            // show nav-link when click responsive icon
+            var menuResponsiveId = document.getElementById('menuResponsiveId');
+            var navId = document.getElementById('nav');
+            var isShowNav = false;
+            console.log(menuResponsiveId)
+            menuResponsiveId.onclick = function () {
+                
+                navId.classList.add('show-nav');
+            }
 
-   
-          
+            // hide nav-link 
+            var closeNav = document.getElementById('close-nav');
+            closeNav.onclick = function (event) {
+                event.preventDefault();
+                navId.classList.remove('show-nav');
+            }
        </script>
     </body>
 </html>

@@ -20,9 +20,9 @@ html {
     height: 100vh;
     position: fixed;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    z-index: 10;
     transform: translateX(0%);
     transition: transform 0.4s;
-
 }
 
 .nav__icon {
@@ -30,9 +30,20 @@ html {
     display: block;
 }
 
+#close-nav {
+    display: none;
+}
+
+#close-nav i {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
 .nav__icon:hover {
     background-color: #cccccc;
 }
+
 
 .nav__link--active > a {
     background-color: #009688 !important;
@@ -86,6 +97,8 @@ html {
     background-color: #cccccc;
 }
 
+
+
 /* Main  */
 
 .main {
@@ -102,12 +115,14 @@ html {
 }
 
 .header .menu-responsive {
-    font-size: 25px;
     color: #fff;
     padding: 16px; 
-    margin-top: 10px;
-    margin-left: -16px;
     display: none;
+}
+
+.header .menu-responsive:hover {
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 .header__text {
@@ -123,6 +138,7 @@ html {
     top: 0;
     left: 250px;
     right: 0;
+    transition: left 0.4s;
 }
 
 .header--scrolled .header__text {
@@ -134,7 +150,7 @@ html {
 }
 
 .header__text--hide {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 58px;
     color: #fff;
     width: 100%;
