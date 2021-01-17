@@ -18,30 +18,22 @@
         transition: margin-left 0.4s;
     }
 
-    .header__text {
-        text-align: center;
-    }
-
-    .header--scrolled {
+    .header--scroll {
         left: 0;
+        height: 70px;
         transition: left 0.4s;
     }
 
-    .header .menu-responsive {
-        position: absolute;
-        font-size: 45px;
-        margin: 62px 0;
+    .header--scroll .menu-responsive {
+        margin: 0px 0px 6px 38px;
+        font-size: 36px;
         display: block;
     }
 
-    .header--scrolled .menu-responsive {
-        font-size: 30px;
-        margin: -4px 0px;
-    }
-
-    .header--scrolled .header__text--hide {
-        margin-left: 65px;
-        font-size: 25px;
+    .header--scroll .header__text {
+        font-size: 35px;
+        line-height: 70px;
+        margin-left: 112px;
     }
 
     #close-nav {

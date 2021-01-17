@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #009688;
+    --white-color: #fff;
+    --black-color: #000;
+}
+
 html {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -46,8 +52,8 @@ html {
 
 
 .nav__link--active > a {
-    background-color: #009688 !important;
-    color: #fff !important;
+    background-color: var(--primary-color) !important;
+    color: var(--white-color) !important;
 }
 
 .nav__link--active > a:hover {
@@ -107,60 +113,74 @@ html {
 }
 
 /* Header  */
+.menu-responsive {
+    margin: 12px 0px 18px 52px;
+    font-size: 30px;
+    color: #fff;
+    position: fixed;
+}
 
-.header {
-    background-color: #009688;
+/* Header default */
+.header--default {
+    background-color: var(--primary-color);
     height: 220px;
     padding: 0 32px ;
+    /* display: none; */
 }
 
-.header .menu-responsive {
-    color: #fff;
-    padding: 16px; 
-    display: none;
-}
-
-.header .menu-responsive:hover {
+.header--default .menu-responsive:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
-.header__text {
+.header--default .header__text {
     font-size: 48px;
-    color: #fff;
+    color: var(--white-color);
     font-weight: 500;
     line-height: 220px;
+    margin-left: 20px;
 }
 
-.header--scrolled {
+/* Header scrolled */
+ .header--scroll {
+    background-color: var(--primary-color);
     height: 58px;
     position: fixed;
     top: 0;
     left: 250px;
     right: 0;
+    z-index: 9;
     transition: left 0.4s;
 }
 
-.header--scrolled .header__text {
+.header--scroll .menu-responsive {
+    margin: -1px 0px 18px 38px;
+    font-size: 30px;
+    color: var(--white-color);
     display: none;
+    padding: 14px;
+    cursor: pointer;
 }
 
-.header--scrolled .menu-responsive {
-    margin: 0 -20px;
-}
 
-.header__text--hide {
-    font-size: 20px;
+.header--scroll .header__text {
+    font-size: 25px;
     line-height: 58px;
-    color: #fff;
+    margin-left: 30px;
+    color: var(--white-color);
     width: 100%;
     font-weight: 500;
     animation: fadeIn linear 0.4s;
     display: none;
 }
 
-.header--scrolled .header__text--hide {
-   display: block;
+/* when scrolled */
+.scrolled .header--scroll {
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+
+.scrolled .header__text {
+    display: block;
 }
 
 @keyframes fadeIn {
@@ -250,7 +270,7 @@ html {
 
 .content__card-link a {
     background-color: #616161;
-    color: #fff;
+    color: var(--primary-color);
     font-size: 15px;
     text-decoration: none;
     padding: 12px 24px;
@@ -270,7 +290,7 @@ html {
 /* Footer  */
 
 .footer {
-    background-color: #009688;
+    background-color: var(--primary-color);
     height: 114px;
 }
 
@@ -278,5 +298,5 @@ html {
     line-height: 114px;
     margin-left: 30px;
     font-size: 15px;
-    color: #fff;
+    color: var(--white-color);
 }
