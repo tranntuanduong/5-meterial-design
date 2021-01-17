@@ -270,7 +270,7 @@ html {
 
 .content__card-link a {
     background-color: #616161;
-    color: var(--primary-color);
+    color: var(--white-color);
     font-size: 15px;
     text-decoration: none;
     padding: 12px 24px;
